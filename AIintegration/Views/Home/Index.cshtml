@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- This default tag gets replace with a form that supports a response-->
+<!--
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+-->
+<!-- Here's my form tag. It posts to my Index controller -->
+<form class="form-floating" asp-action="Index" method="post"> 
+    <input type="text" class="form-control" id="floatingInputValue" placeholder="Ask your question of the great Groq"  name="question" > <!-- 'name' allows me to do model binding-->
+    <label for="floatingInputValue">The AI (mostly) knows everything, but be wary of hallucinations!</label>
+    <button type="submit" class="btn btn-primary">Get the Answer</button>
+</form>
+@if (ViewBag.Answer != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @ViewBag.Answer
+    </div>
+}
